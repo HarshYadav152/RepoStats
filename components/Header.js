@@ -20,9 +20,12 @@ export default function Header() {
 
             {/* Star Button */}
 
-            <a href=''
-              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 text-white">
-              <Star className="w-4 h-4"/>
+            <a href='https://github.com/HarshYadav152/repoStats'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 text-white hover:bg-white/5">
+              <Star className="w-4 h-4" />
+              <span className="text-sm text-gray-300">Stars</span>
             </a>
           </div>
         </div>
