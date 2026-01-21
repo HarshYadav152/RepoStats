@@ -73,7 +73,7 @@ export default function GitHubContributors() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 py-10">
+    <div className="py-10">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-full blur-3xl"></div>
@@ -83,21 +83,21 @@ export default function GitHubContributors() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-12">
         {/* Header */}
-        <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-8 mb-8">
+        <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-4 mb-8">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur opacity-30"></div>
 
           <div className="relative">
             <div className="flex flex-col lg:flex-row justify-between items-center gap-6 mb-8">
               <div className="flex items-center gap-4">
                 <div className="relative">
-                  <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-30 animate-pulse"></div>
+                  {/* <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-30 animate-pulse"></div> */}
                   <div className="relative p-4 bg-gradient-to-br from-blue-900 to-purple-900 rounded-2xl shadow-lg">
                     <Github className="w-10 h-10 text-white" />
                   </div>
                 </div>
                 <div>
                   <h1 className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-transparent">
-                    GitHub Contributors Analytics
+                    GitHub Repo Contributors Analytics
                   </h1>
                   <p className="text-gray-400 mt-1">Analyze repository contributions with detailed insights</p>
                 </div>
@@ -270,7 +270,7 @@ export default function GitHubContributors() {
         {apiResponse?.charts && (
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
             {/* Bar Chart - Top Contributors */}
-            <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-6 overflow-hidden">
+            <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-3 overflow-hidden">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur opacity-30 -z-10"></div>
 
               <div className="relative">
@@ -357,6 +357,7 @@ export default function GitHubContributors() {
                           backgroundColor: 'rgba(17, 24, 39, 0.95)',
                           border: '1px solid rgba(75, 85, 99, 0.5)',
                           borderRadius: '0.5rem',
+                          color:"white",
                           backdropFilter: 'blur(8px)',
                           boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                         }}
@@ -372,7 +373,7 @@ export default function GitHubContributors() {
             </div>
 
             {/* Line Chart - Activity Trend */}
-            <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-6 lg:col-span-2">
+            <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-3 lg:col-span-2">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-3xl blur opacity-30"></div>
               <div className="relative">
                 <h3 className="text-lg font-semibold text-gray-300 mb-6 flex items-center">
@@ -389,6 +390,7 @@ export default function GitHubContributors() {
                         contentStyle={{
                           backgroundColor: 'rgba(17, 24, 39, 0.9)',
                           border: '1px solid #4B5563',
+                          color:"white",
                           borderRadius: '0.5rem',
                           backdropFilter: 'blur(8px)'
                         }}
@@ -422,7 +424,7 @@ export default function GitHubContributors() {
 
         {/* Contributors List */}
         {apiResponse?.contributors.length > 0 && (
-          <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-8">
+          <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-4">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur opacity-30"></div>
 
             <div className="relative">
@@ -503,7 +505,7 @@ export default function GitHubContributors() {
 
         {/* Metadata Footer */}
         {apiResponse?.metadata && (
-          <div className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-4 text-center text-sm text-gray-500">
             <p>API Version: {apiResponse.metadata.apiVersion} | Last Updated: {new Date(apiResponse.timestamp).toLocaleString()}</p>
             <p className="mt-1">{apiResponse.metadata.note}</p>
           </div>
