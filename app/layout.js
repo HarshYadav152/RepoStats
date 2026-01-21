@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata = {
   // Basic Metadata
   title: {
-    default: "GitHub Contribution Analytics - Repository Insights & Statistics",
+    default: "GitHub Repo Contribution Analytics - Repository Insights & Statistics | by 152",
     template: "%s | GitHub Contribution Analytics"
   },
   description: "Analyze GitHub repository contributions with detailed insights. View contributor statistics, merged pull requests, commit history, and comprehensive analytics for any GitHub repository.",
@@ -26,13 +27,13 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://github-contrib-stats.app",
-    siteName: "GitHub Contribution Analytics",
-    title: "GitHub Contribution Analytics - Repository Insights & Statistics",
+    url: "https://repostats.geetasystems.co.in",
+    siteName: "GitHub Repo Contribution Analytics | by 152",
+    title: "GitHub Repo Contribution Analytics - Repository Insights & Statistics | by 152",
     description: "Comprehensive GitHub repository analytics tool. Track contributions, analyze pull requests, visualize commit patterns, and gain insights into your project's development activity.",
     images: [
       {
-        url: "https://github-contrib-stats.app/og-image.png",
+        url: "https://repostats.geetasystems.co.in/repostats.png",
         width: 1200,
         height: 630,
         alt: "GitHub Contribution Analytics Dashboard",
@@ -43,15 +44,19 @@ export const metadata = {
   // Twitter Card Metadata
   twitter: {
     card: "summary_large_image",
-    title: "GitHub Contribution Analytics - Repository Insights",
-    description: "Analyze GitHub contributions, track pull requests, and visualize repository statistics with comprehensive analytics tools",
-    images: ["https://github-contrib-stats.app/og-image.png"],
+    title: "GitHub Repo Contribution Analytics - Repository Insights",
+    description: "Analyze GitHub contributions, track merged pr, and visualize repository statistics with comprehensive analytics tools",
+    images: ["https://repostats.geetasystems.co.in/repostats.png"],
     creator: "@githubcontrib",
     site: "@githubcontrib",
   },
   
   // Additional Metadata
   keywords: [
+    "repo stats",
+    "repostats",
+    "repo 152",
+    "hy152",
     "github analytics",
     "contribution statistics",
     "repository insights",
@@ -69,7 +74,7 @@ export const metadata = {
     "project analytics"
   ],
   authors: [
-    { name: "GitHub Contrib Stats Team", url: "https://github-contrib-stats.app" },
+    { name: "Harsh Yadav", url: "https://repostats.geetasystems.co.in" },
   ],
   creator: "GitHub Contrib Stats",
   publisher: "GitHub Contrib Stats",
@@ -95,8 +100,6 @@ export const metadata = {
   // Verification Tags (add your actual verification codes)
   verification: {
     google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
   },
   
   // Viewport for mobile optimization
@@ -107,7 +110,7 @@ export const metadata = {
   },
   
   // Canonical URL
-  metadataBase: new URL("https://github-contrib-stats.app"),
+  metadataBase: new URL("https://repostats.geetasystems.co.in"),
   
   // Additional Tags
   alternates: {
@@ -120,7 +123,7 @@ export const metadata = {
   // App Links
   appLinks: {
     web: {
-      url: "https://github-contrib-stats.app",
+      url: "https://repostats.geetasystems.co.in",
       should_fallback: true,
     },
   },
@@ -143,25 +146,12 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-br from-gray-900 via-black to-gray-900 min-h-screen`}
-        itemScope
-        itemType="https://schema.org/WebPage"
       >        
         <Header/>
         <main className="relative z-10">
           {children}
         </main>
-        
-        {/* Footer with additional SEO context */}
-        <footer className="relative z-10 mt-16 border-t border-white/10 backdrop-blur-sm bg-white/5">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-            <div className="text-center text-gray-400 text-sm">
-              <p>© {new Date().getFullYear()} GitHub Contribution Analytics. Powered by GitHub API.</p>
-              <p className="mt-2">
-                Analyze repository contributions, track development activity, and gain insights into open source projects.
-              </p>
-            </div>
-          </div>
-        </footer>
+        <Footer/>
       </body>
     </html>
   );
