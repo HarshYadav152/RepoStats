@@ -56,7 +56,7 @@ export const metadata = {
     "repo stats",
     "repostats",
     "repo 152",
-    "hy152",
+    "hy152 stats",
     "github analytics",
     "contribution statistics",
     "repository insights",
