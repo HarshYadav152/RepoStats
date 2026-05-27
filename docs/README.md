@@ -26,12 +26,12 @@ If you're new to RepoStats, we recommend reading the documentation in this order
 
 ## Quick Links
 
-- [GitHub Repository](https://github.com/yourusername/RepoStats)
-- [Issues](https://github.com/yourusername/RepoStats/issues)
-- [Discussions](https://github.com/yourusername/RepoStats/discussions)
+- [GitHub Repository](https://github.com/HarshYadav152/repoStats)
+- [Issues](https://github.com/HarshYadav152/repoStats/issues)
+- [Discussions](https://github.com/HarshYadav152/repoStats/discussions)
 
 ## Need Help?
 
-- Open a [GitHub Issue](https://github.com/yourusername/RepoStats/issues) for bugs or feature requests
+- Open a [GitHub Issue](https://github.com/HarshYadav152/repoStats/issues) for bugs or feature requests
 - Check existing documentation for common questions
 - Review the [Code of Conduct](../CODE_OF_CONDUCT.md) for community guidelines

@@ -24,7 +24,7 @@ git --version
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/RepoStats.git
+git clone https://github.com/HarshYadav152/repoStats
 cd RepoStats/repostats
 ```
 

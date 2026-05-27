@@ -23,6 +23,7 @@ Please review our [Code of Conduct](../CODE_OF_CONDUCT.md) before contributing. 
 ```bash
 # Fork the repository on GitHub, then:
 git clone https://github.com/yourusername/RepoStats.git
+git remote add upstream https://github.com/HarshYadav152/repoStats
 cd RepoStats/repostats
 ```
 
