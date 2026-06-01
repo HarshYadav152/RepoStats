@@ -237,18 +237,19 @@ export default function GitHubContributors() {
                   </div>
                 </div>
 
-                {apiResponse.repoStats.topContributor !== "HarshYadav152"? apiResponse.repoStats.topContributo: "" && <div className="backdrop-blur-sm bg-gradient-to-br from-rose-900/30 to-pink-900/20 rounded-2xl border border-rose-900/30 p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm text-gray-400 mb-1">Top Contributor</p>
-                      <p className="text-xl font-bold text-rose-300 truncate">{apiResponse.repoStats.topContributor}</p>
-                    </div>
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-rose-500/20 to-pink-500/20">
-                      <Star className="w-6 h-6 text-rose-400" />
+                {apiResponse.repoStats.topContributor && apiResponse.repoStats.topContributor !== "HarshYadav152" && (
+                  <div className="backdrop-blur-sm bg-gradient-to-br from-rose-900/30 to-pink-900/20 rounded-2xl border border-rose-900/30 p-6">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-sm text-gray-400 mb-1">Top Contributor</p>
+                        <p className="text-xl font-bold text-rose-300 truncate">{apiResponse.repoStats.topContributor}</p>
+                      </div>
+                      <div className="p-3 rounded-xl bg-gradient-to-r from-rose-500/20 to-pink-500/20">
+                        <Star className="w-6 h-6 text-rose-400" />
+                      </div>
                     </div>
                   </div>
-                </div>
-                }
+                )}
               </div>
             )}
 
