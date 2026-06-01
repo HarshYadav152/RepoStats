@@ -26,14 +26,10 @@ export default function GitHubContributors() {
         body: JSON.stringify({ url, GITHUB_TOKEN: githubToken }),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to fetch data');
-      }
-
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
       
-      if (!data.success) {
-        throw new Error(data.details || 'Failed to fetch repository data');
+      if (!response.ok || !data.success) {
+        throw new Error(data.error || data.details || 'Failed to fetch repository data');
       }
 
       setApiResponse(data);

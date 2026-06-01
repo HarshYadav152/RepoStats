@@ -129,15 +129,37 @@ export async function POST(request) {
     } catch (err) {
         console.error("Error in POST handler:", err);
         
-        // Enhanced error response
+        let status = 500;
+        let errorMessage = "An error occurred while processing the request.";
+        let errorDetails = err.message || 'Unknown error';
+
+        if (err.response) {
+            status = err.response.status;
+            if (status === 404) {
+                errorMessage = "GitHub repository or resource not found. Please verify the URL.";
+            } else if (status === 403) {
+                errorMessage = "GitHub API rate limit exceeded. Please provide a GITHUB_TOKEN or try again later.";
+            } else if (status === 401) {
+                errorMessage = "Invalid GitHub GITHUB_TOKEN provided. Please check your credentials.";
+            } else {
+                errorMessage = `GitHub API responded with status ${status}.`;
+            }
+            if (err.response.data && err.response.data.message) {
+                errorDetails = err.response.data.message;
+            }
+        } else if (err.request) {
+            status = 503;
+            errorMessage = "Unable to reach the GitHub API. Please check your network connection.";
+        }
+
         return NextResponse.json(
             { 
                 success: false,
-                error: "An error occurred while processing the request.",
-                details: err.message || 'Unknown error',
+                error: errorMessage,
+                details: errorDetails,
                 timestamp: new Date().toISOString()
             },
-            { status: 500 }
+            { status }
         );
     }
 }
