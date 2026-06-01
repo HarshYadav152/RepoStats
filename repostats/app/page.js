@@ -198,8 +198,52 @@ export default function GitHubContributors() {
               </div>
             )}
 
+            {/* Loading Skeleton */}
+            {isLoading && (
+              <div className="animate-pulse space-y-8 mb-8">
+                {/* Stats Cards Skeleton */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                  {[...Array(4)].map((_, i) => (
+                    <div key={i} className="bg-white/5 rounded-2xl border border-white/10 p-6 h-28 flex flex-col justify-between">
+                      <div className="h-4 bg-white/10 rounded w-2/3"></div>
+                      <div className="h-8 bg-white/10 rounded w-1/3 mt-2"></div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Charts Skeleton */}
+                <div className="grid lg:grid-cols-2 gap-8">
+                  <div className="bg-white/5 rounded-3xl border border-white/10 p-6 h-96">
+                    <div className="h-6 bg-white/10 rounded w-1/2 mb-6"></div>
+                    <div className="h-64 bg-white/10 rounded"></div>
+                  </div>
+                  <div className="bg-white/5 rounded-3xl border border-white/10 p-6 h-96">
+                    <div className="h-6 bg-white/10 rounded w-1/2 mb-6"></div>
+                    <div className="h-64 bg-white/10 rounded"></div>
+                  </div>
+                </div>
+
+                {/* Contributors Skeleton */}
+                <div className="bg-white/5 rounded-3xl border border-white/10 p-6">
+                  <div className="h-6 bg-white/10 rounded w-1/4 mb-6"></div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {[...Array(6)].map((_, i) => (
+                      <div key={i} className="bg-white/5 rounded-2xl border border-white/10 p-6 h-40 flex items-start space-x-4">
+                        <div className="w-16 h-16 rounded-full bg-white/10 animate-pulse"></div>
+                        <div className="flex-1 space-y-3">
+                          <div className="h-5 bg-white/10 rounded w-3/4"></div>
+                          <div className="h-4 bg-white/10 rounded w-1/2"></div>
+                          <div className="h-4 bg-white/10 rounded w-1/3"></div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
             {/* Stats Cards */}
-            {apiResponse?.repoStats && (
+            {apiResponse?.repoStats && !isLoading && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                 <div className="backdrop-blur-sm bg-gradient-to-br from-blue-900/30 to-purple-900/20 rounded-2xl border border-blue-900/30 p-6">
                   <div className="flex items-center justify-between">
@@ -267,7 +311,7 @@ export default function GitHubContributors() {
         </div>
 
         {/* Charts Section */}
-        {apiResponse?.charts && (
+        {apiResponse?.charts && !isLoading && (
           <div className="grid lg:grid-cols-2 gap-8 mb-8">
             {/* Bar Chart - Top Contributors */}
             <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-3 overflow-hidden">
@@ -423,7 +467,7 @@ export default function GitHubContributors() {
         )}
 
         {/* Contributors List */}
-        {apiResponse?.contributors.length > 0 && (
+        {apiResponse?.contributors.length > 0 && !isLoading && (
           <div className="relative backdrop-blur-xl bg-gradient-to-b from-white/5 to-white/10 rounded-3xl border border-white/20 shadow-2xl p-4">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur opacity-30"></div>
 
