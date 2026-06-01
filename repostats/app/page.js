@@ -14,6 +14,25 @@ export default function GitHubContributors() {
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
   const handleFetchData = async () => {
+    if (!url || !url.trim()) {
+      setError('Please enter a GitHub repository URL.');
+      return;
+    }
+
+    const trimmedUrl = url.trim();
+    if (!trimmedUrl.toLowerCase().includes('github.com')) {
+      setError('Please enter a valid GitHub repository URL (e.g., https://github.com/owner/repo).');
+      return;
+    }
+
+    if (githubToken && githubToken.trim()) {
+      const cleanToken = githubToken.trim();
+      if (!cleanToken.startsWith('ghp_') && !cleanToken.startsWith('github_pat_')) {
+        setError('Invalid token format. GitHub Personal Access Tokens should start with ghp_ or github_pat_.');
+        return;
+      }
+    }
+
     setIsLoading(true);
     setError(null);
 
@@ -23,7 +42,7 @@ export default function GitHubContributors() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url, GITHUB_TOKEN: githubToken }),
+        body: JSON.stringify({ url: trimmedUrl, GITHUB_TOKEN: githubToken.trim() }),
       });
 
       if (!response.ok) {
