@@ -102,13 +102,6 @@ export const metadata = {
     google: "your-google-verification-code",
   },
   
-  // Viewport for mobile optimization
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  
   // Canonical URL
   metadataBase: new URL("https://repostats.geetasystems.co.in"),
   
@@ -133,8 +126,12 @@ export const metadata = {
   
   // Color Scheme
   colorScheme: "dark",
-  
-  // Theme Color
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#0f172a" },
     { media: "(prefers-color-scheme: dark)", color: "#0f172a" },
