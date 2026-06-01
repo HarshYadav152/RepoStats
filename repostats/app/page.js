@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import { Github, Users, GitPullRequest, Star, Code, Activity, TrendingUp, Download, Shield, Zap, Globe, ExternalLink } from 'lucide-react';
 
@@ -444,10 +445,12 @@ export default function GitHubContributors() {
                     <div className="relative flex items-start space-x-4">
                       <div className="relative">
                         <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur opacity-20 group-hover:opacity-30 transition-opacity"></div>
-                        <img
+                        <Image
                           src={contributor.avatar}
                           alt={contributor.username}
-                          className="relative w-16 h-16 rounded-full border-2 border-white/20"
+                          width={64}
+                          height={64}
+                          className="relative w-16 h-16 rounded-full border-2 border-white/20 object-cover"
                         />
                       </div>
 
