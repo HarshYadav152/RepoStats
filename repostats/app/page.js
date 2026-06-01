@@ -49,21 +49,30 @@ export default function GitHubContributors() {
   const exportToCSV = () => {
     if (!apiResponse?.contributors.length) return;
 
+    const escapeCSV = (val) => {
+      if (val === null || val === undefined) return '';
+      const stringVal = String(val);
+      if (stringVal.includes(',') || stringVal.includes('"') || stringVal.includes('\n') || stringVal.includes('\r')) {
+        return `"${stringVal.replace(/"/g, '""')}"`;
+      }
+      return stringVal;
+    };
+
     const headers = ['Username', 'Contributions', 'Merged PRs', 'Avatar URL', 'GitHub URL', 'Type'];
     const csvRows = [
       headers.join(','),
       ...apiResponse.contributors.map(c => [
-        c.username,
-        c.contributions,
-        c.mergedPRs,
-        c.avatar,
-        c.githubUrl,
-        c.type
+        escapeCSV(c.username),
+        escapeCSV(c.contributions),
+        escapeCSV(c.mergedPRs),
+        escapeCSV(c.avatar),
+        escapeCSV(c.githubUrl),
+        escapeCSV(c.type)
       ].join(','))
     ];
 
     const csvString = csvRows.join('\n');
-    const blob = new Blob([csvString], { type: 'text/csv' });
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
