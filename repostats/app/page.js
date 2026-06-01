@@ -198,6 +198,33 @@ export default function GitHubContributors() {
               </div>
             )}
 
+            {/* Empty State / Welcome Guide */}
+            {!apiResponse && !isLoading && !error && (
+              <div className="grid md:grid-cols-3 gap-6 mt-8 relative z-10">
+                <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                  <div className="p-3 w-12 h-12 bg-blue-500/10 rounded-xl text-blue-400 mb-4 flex items-center justify-center">
+                    <Activity className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Detailed Commit Analytics</h3>
+                  <p className="text-gray-400 text-sm">Visualize contribution volume, track trends over time, and identify your core open-source developers.</p>
+                </div>
+                <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                  <div className="p-3 w-12 h-12 bg-purple-500/10 rounded-xl text-purple-400 mb-4 flex items-center justify-center">
+                    <GitPullRequest className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">PR Contribution Metrics</h3>
+                  <p className="text-gray-400 text-sm">Analyze pull request distribution across tiers (novice, active, core, expert) with automated categorization.</p>
+                </div>
+                <div className="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 transition-all duration-300">
+                  <div className="p-3 w-12 h-12 bg-green-500/10 rounded-xl text-green-400 mb-4 flex items-center justify-center">
+                    <Users className="w-6 h-6" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Export Data Instantly</h3>
+                  <p className="text-gray-400 text-sm">Download contributor statistics, avatars, and commit metrics in a standard CSV format for spreadsheet reporting.</p>
+                </div>
+              </div>
+            )}
+
             {/* Stats Cards */}
             {apiResponse?.repoStats && (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
