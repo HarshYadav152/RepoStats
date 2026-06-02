@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import { Github, Users, GitPullRequest, Star, Code, Activity, TrendingUp, Download, Shield, Zap, Globe, ExternalLink } from 'lucide-react';
+import Info from '@/components/Info';
 
 export default function GitHubContributors() {
   const [apiResponse, setApiResponse] = useState(null);
@@ -13,6 +14,12 @@ export default function GitHubContributors() {
 
   const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
+  const TOKEN_MESSAGE = [
+    "Your GitHub token is not stored anywhere.",
+    "It is kept only in memory during this session and is never saved to localStorage, cookies, or our servers.",
+    "You will need to re-enter it after refreshing or reopening the app.",
+  ];
+  
   const handleFetchData = async () => {
     setIsLoading(true);
     setError(null);
@@ -132,6 +139,7 @@ export default function GitHubContributors() {
                     onChange={(e) => setGithubToken(e.target.value)}
                     className="w-full backdrop-blur-sm bg-white/5 border border-white/10 rounded-xl px-5 py-3.5 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 focus:outline-none transition-all duration-300"
                   />
+                  <Info message={TOKEN_MESSAGE} />
                 </div>
               </div>
 
