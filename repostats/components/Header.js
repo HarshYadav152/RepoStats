@@ -27,12 +27,6 @@ export default function Header() {
                 <Link href="/" className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
                   Home
                 </Link>
-                <Link href="/#features" className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
-                  Features
-                </Link>
-                <Link href="/#roadmap" className="px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">
-                  Roadmap
-                </Link>
               </div>
             </div>
 
@@ -57,13 +51,6 @@ export default function Header() {
                 <Github className="w-4 h-4" />
                 <span className="text-sm">GitHub</span>
               </a>
-
-              <Link 
-                href="/repo-analytics"
-                className="flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 dark:bg-white/10 dark:hover:bg-white/20 border border-transparent dark:border-white/10 transition-all duration-300 shadow-sm"
-              >
-                <span>Analyze Repository</span>
-              </Link>
             </div>
           </div>
         </div>
